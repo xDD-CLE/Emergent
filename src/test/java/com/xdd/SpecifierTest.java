@@ -6,11 +6,8 @@ import static org.junit.Assert.*;
 
 public class SpecifierTest { {
 
-    it("Allows me to describe my tests simply", $-> {
+    it("Allows me to describe my tests simply", () -> {
 
         assertTrue("This should work",true);
-
-
-        return null;
     });
 } }
