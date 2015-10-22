@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/xDD-CLE/Emerge.svg?branch=master)](https://travis-ci.org/xDD-CLE/Emerge)
 # Emergent
 An RSpec inspired testing framework for Java with the goal of helping better designs emerge through expressive tests
 
