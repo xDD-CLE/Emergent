@@ -31,6 +31,17 @@ public class CalculatorSpec extends Spec {{
             int result = calculator.add(2, 2);
             assertEquals(4, result);
         });
+        
+        
+        describe("The calculation of negative numbers", () -> {
+        
+            it("calculates sum of positive numbers", () -> {
+                Calculator calculator = new Calculator();
+                int result = calculator.add(-2, 2);
+                assertEquals(0, result);
+            });
+            
+        }
 
 } }
 ```
