@@ -8,5 +8,4 @@ public class SpecifierSpec extends Spec {{
 
             assertTrue("This should work", true);
         });
-
 } }
