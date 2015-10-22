@@ -20,6 +20,20 @@ I welcome any and all feedback and welcome all contributions to emerge so long a
 
 ## Using Emerge
 (this is emerging (pun intented) - more to come)
+```java
+import com.xdd.Spec;
+import static org.junit.Assert.*;
+
+public class CalculatorSpec extends Spec {{
+
+        it("calculates the sum of positive numbers", () -> {
+            Calculator calculator = new Calculator();
+            int result = calculator.add(2, 2);
+            assertEquals(4, result);
+        });
+
+} }
+```
 
 
 
