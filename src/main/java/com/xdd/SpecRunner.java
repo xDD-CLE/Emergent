@@ -14,7 +14,16 @@ public class SpecRunner extends Runner {
 
     @Override
     public Description getDescription() {
-        return Description.createSuiteDescription(testClass);
+        Description description = Description.createSuiteDescription(testClass);
+        try {
+            Spec spec = (Spec) testClass.newInstance();
+            for (SpecificationDetails specificationDetails : spec.getSpecificationDetails()) {
+                description.addChild(Description.createSuiteDescription(specificationDetails.getDescription()));
+            }
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+        return description;
     }
 
     @Override
