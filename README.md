@@ -1,6 +1,33 @@
 [![Build Status](https://travis-ci.org/xDD-CLE/Emergent.svg?branch=master)](https://travis-ci.org/xDD-CLE/Emergent)
 # Emergent
-An RSpec inspired testing framework for Java with the goal of helping better designs emerge through expressive tests
+An RSpec inspired testing framework for Java with the goal of helping better designs emerge through expressive tests  
+## Show me the code!
+```java
+import com.xdd.Spec;
+import static org.junit.Assert.*;
+
+public class CalculatorSpec extends Spec {{
+
+        it("calculates the sum of positive numbers", () -> {
+            Calculator calculator = new Calculator();
+            int result = calculator.add(2, 2);
+            assertEquals(4, result);
+        });
+        
+        
+        context("The calculation of negative numbers", () -> {
+        
+            it("calculates sum of positive numbers", () -> {
+                Calculator calculator = new Calculator();
+                int result = calculator.add(-2, 2);
+                assertEquals(0, result);
+            });
+            
+        }
+
+} }
+```
+This DSL is emerging, but this is the flavor of it's intent.
 
 ## Motivation
 I find great value in tests that are communicative. I never realized this value until working with RSpec.  
@@ -17,34 +44,5 @@ I welcome any and all feedback and welcome all contributions to emerge so long a
 
 ## Downloading
 (Gradle & Maven instructions to come)
-
-## Using Emergent
-(this is emerging (pun intented) - more to come)
-```java
-import com.xdd.Spec;
-import static org.junit.Assert.*;
-
-public class CalculatorSpec extends Spec {{
-
-        it("calculates the sum of positive numbers", () -> {
-            Calculator calculator = new Calculator();
-            int result = calculator.add(2, 2);
-            assertEquals(4, result);
-        });
-        
-        
-        describe("The calculation of negative numbers", () -> {
-        
-            it("calculates sum of positive numbers", () -> {
-                Calculator calculator = new Calculator();
-                int result = calculator.add(-2, 2);
-                assertEquals(0, result);
-            });
-            
-        }
-
-} }
-```
-
 
 
