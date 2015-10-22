@@ -18,7 +18,7 @@ I welcome any and all feedback and welcome all contributions to emerge so long a
 ## Downloading
 (Gradle & Maven instructions to come)
 
-## Using Emergenet
+## Using Emergent
 (this is emerging (pun intented) - more to come)
 ```java
 import com.xdd.Spec;
