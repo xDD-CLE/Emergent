@@ -50,8 +50,8 @@ public class SpecRunnerIntegrationTest {
                 totalCountOfSpecDetailsWithinTheTestSpec, children.size());
 
         String nonMatchingDescriptionDetails = "The description details don't match those within the test spec!";
-        assertEquals(nonMatchingDescriptionDetails, "is the first description", children.get(0).getDisplayName());
-        assertEquals(nonMatchingDescriptionDetails, "is the second description", children.get(1).getDisplayName());
+        assertEquals(nonMatchingDescriptionDetails, "it is the first description", children.get(0).getDisplayName());
+        assertEquals(nonMatchingDescriptionDetails, "it is the second description", children.get(1).getDisplayName());
     }
 
 }
