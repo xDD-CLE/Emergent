@@ -17,7 +17,7 @@ public class CalculatorSpec extends Spec {{
         
         context("The calculation of negative numbers", () -> {
         
-            it("calculates sum of positive numbers", () -> {
+            it("calculates sum of negative numbers", () -> {
                 Calculator calculator = new Calculator();
                 int result = calculator.add(-2, 2);
                 assertEquals(0, result);
