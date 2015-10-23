@@ -16,7 +16,7 @@ public class Spec {
         specificationDetails.add(new SpecificationDetails(format("it %s",description), test));
     }
 
-    public List<SpecificationDetails> getSpecificationDetails() {
+    protected List<SpecificationDetails> getSpecificationDetails() {
         return specificationDetails;
     }
 }

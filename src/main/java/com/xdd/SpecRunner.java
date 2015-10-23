@@ -9,9 +9,11 @@ import static java.lang.String.format;
 public class SpecRunner extends Runner {
 
     private final Spec spec;
+    private final Description specDescription;
 
     public SpecRunner(Class testClass) {
-        spec = validatedSpecFromThe(testClass);
+        this.spec = validatedSpecFromThe(testClass);
+        this.specDescription = Description.createSuiteDescription(spec.getClass());
     }
 
     private Spec validatedSpecFromThe(Class testClass) {
@@ -24,15 +26,20 @@ public class SpecRunner extends Runner {
 
     @Override
     public Description getDescription() {
-        Description description = Description.createSuiteDescription(spec.getClass());
+        addSpecificationDetailsToSpecDescription();
+        return specDescription;
+    }
+
+    private void addSpecificationDetailsToSpecDescription() {
         for (SpecificationDetails specificationDetails : spec.getSpecificationDetails()) {
-            description.addChild(Description.createSuiteDescription(specificationDetails.getDescription()));
+            specDescription.addChild(Description.createSuiteDescription(specificationDetails.getDescription()));
         }
-        return description;
     }
 
     @Override
     public void run(RunNotifier notifier) {
-
+        for(SpecificationDetails specificationDetails : spec.getSpecificationDetails()) {
+            specificationDetails.runTestWith(spec,notifier);
+        }
     }
 }
