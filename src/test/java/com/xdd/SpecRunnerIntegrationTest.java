@@ -3,7 +3,6 @@ package com.xdd;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.Description;
-import org.junit.runner.notification.RunNotifier;
 
 import java.util.ArrayList;
 
