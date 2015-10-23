@@ -10,13 +10,17 @@ import static org.junit.Assert.assertEquals;
 
 public class SpecRunnerIntegrationTest {
 
-    public static class TestSpec extends Spec {{
-        it("is the first description", () -> {
-        });
+    public static class TestSpec extends Spec { {
 
-        it("is the second description", () -> {
-        });
-    }}
+            it("is the first description", () -> {
+
+            });
+
+            it("is the second description", () -> {
+
+            });
+
+        } }
 
     Description description;
 
@@ -26,9 +30,14 @@ public class SpecRunnerIntegrationTest {
         description = specRunner.getDescription();
     }
 
+    @Test(expected = SpecificationException.class)
+    public void itOnlySupportsSpecs() {
+        new SpecRunner(Object.class);
+    }
+
     @Test
     public void itsDescriptionHasADisplaynameMatchingTheSpec() {
-        assertEquals("com.xdd.SpecRunnerIntegrationTest$TestSpec",description.getDisplayName());
+        assertEquals("com.xdd.SpecRunnerIntegrationTest$TestSpec", description.getDisplayName());
     }
 
     @Test
@@ -41,8 +50,8 @@ public class SpecRunnerIntegrationTest {
                 totalCountOfSpecDetailsWithinTheTestSpec, children.size());
 
         String nonMatchingDescriptionDetails = "The description details don't match those within the test spec!";
-        assertEquals(nonMatchingDescriptionDetails,"is the first description", children.get(0).getDisplayName());
-        assertEquals(nonMatchingDescriptionDetails,"is the second description", children.get(1).getDisplayName());
+        assertEquals(nonMatchingDescriptionDetails, "is the first description", children.get(0).getDisplayName());
+        assertEquals(nonMatchingDescriptionDetails, "is the second description", children.get(1).getDisplayName());
     }
 
 }
