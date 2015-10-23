@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/xDD-CLE/Emergent.svg?branch=master)](https://travis-ci.org/xDD-CLE/Emergent)
 # Emergent
-An RSpec inspired testing framework for Java with the goal of helping better designs emerge through expressive tests  
+An RSpec and Cucumber inspired testing framework for Java with the goal of helping better designs emerge through expressive tests  
 ## Show me the code!
 ```java
 import com.xdd.Spec;
@@ -24,6 +24,21 @@ public class CalculatorSpec extends Spec {{
             });
             
         }
+        
+        describe("calculating the sum of positive numbers", () -> {
+        
+            given("a stateless calculator", () -> {
+                return new Calculator();
+            });
+            
+            when("I add two positive numbers", calculator -> {
+                return calculator.add(2, 2);
+            });
+            
+            then("I should have the correct sum", sum -> {
+                assertEquals(4, sum);
+            });
+        });
 
 } }
 ```
